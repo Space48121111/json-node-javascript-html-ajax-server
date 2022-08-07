@@ -13,20 +13,40 @@
 <script type="text/javascript">
 
 function login()
-{	
+{
 	var userName = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 	return true;
 }
+
+// use xml to fetch data from http
+// var xhttp = new XMLHttpRequest();
+// xhttp.onreadystatechange = function () {
+// 	if (this.readystate = 4 && this.status == 200) {
+// 		var response = JSON.parse(xhttp.reponseText);
+// 		console.log(response.users);
+// 		var users = response.username;
+// 		var output = '';
+// 		for(var i=0, i<users.length, i++){
+// 			ouput += '<li>' +users[i].name+ '</li>';
+// 		}
+// 		document.getElementById('username').innerHTMl = output;
+// 	}
+// };
+// xhttp.open('GET', 'users.json', true);
+// xhttp.send();
 
 </script>
 
 <form>
 Username: <input type="text" id="username"><br>
 Password: <input type="password" id="password"><button type="button" onclick="toggleShowPassword()">Eye</button> <br>
-<button type="button" onclick="login()">Login</button> 
+<button type="button" onclick="login()">Login</button>
 </form>
 
+<ul>
+
+</ul>
 </center>
 
 </body>
