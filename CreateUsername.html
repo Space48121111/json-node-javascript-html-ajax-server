@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Create new username</title>
+</head>
+<body>
+	<!-- ajax asychronous js and xml library
+	use xml http request object to send json, xml, html to server -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+
+
+
+function toggleShowPassword()
+{
+	if (document.getElementById("password").type == "password")
+	{
+		document.getElementById("password").type = "text";
+	}
+	else
+	{
+		document.getElementById("password").type = "password";
+	}
+}
+
+// function isUsernameTaken(userName)
+// {
+// 	for (var i=0; i<window.localStorage.length; i++)
+// 	{
+// 		if (window.localStorage.key(i) == userName)
+// 			return true;
+// 	}
+//
+// 	return false;
+// }
+
+function submitUsername()
+{
+	var userName = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+
+  // var obj = {
+	// 	userName: userName,
+	// 	password: password
+	// }
+
+  $.ajax({
+      type: 'POST',
+      url: '/create?'+userName+':'+password,
+      // url: '/create?'+JSON.stringify(obj),
+      // data: JSON.stringify(obj),
+      success: function(res) {
+        console.log(res);
+      }
+  });
+
+  // console.log(obj);
+  // console.log('Data' + data);
+
+  return true;
+}
+
+</script>
+
+<center>
+<font>Create new username <a href="login">Login</a></font>
+<br>
+<h1>Create new username</h1>
+
+<form>
+Username: <input type="text" id="username"><br>
+Password: <input type="password" id="password"><button type="button" onclick="toggleShowPassword()">Eye</button> <br>
+<button type="button" onclick="submitUsername()">Submit</button>
+</form>
+
+</center>
+
+</body>
+</html>

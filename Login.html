@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+
+<center>
+<font><a href="create">Create new username</a> Login</font>
+<br>
+<h1>Login</h1>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function login()
+{	
+	var userName = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	return true;
+}
+
+</script>
+
+<form>
+Username: <input type="text" id="username"><br>
+Password: <input type="password" id="password"><button type="button" onclick="toggleShowPassword()">Eye</button> <br>
+<button type="button" onclick="login()">Login</button> 
+</form>
+
+</center>
+
+</body>
+</html>
