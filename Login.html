@@ -17,6 +17,16 @@ function login()
 	var userName = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 	return true;
+
+	$.ajax({
+      type: 'POST',
+      url: '/login?'+userName+':'+password,
+			// check if there're any dups
+      success: function(res) {
+        console.log(res);
+      }
+
+
 }
 
 // use xml to fetch data from http

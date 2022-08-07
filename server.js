@@ -3,26 +3,29 @@
 
 
 const http = require('http');
+// file stream
 const fs = require('fs').promises;
 
 
-function getAllUsers() {
-	var data = []
+// function getAllUsers() {
+// 	var data = []
+//
+// 	fs.readFile(__dirname + "/users.json")
+// 		.then(contents => {
+// 			// parse json file back into an object in js
+// 			data = JSON.parse(contents);
+// 			console.log(data);
+// 			// return data;
+// 		})
+//
+// 	// for (var idx=0; idx<data.length; idx++) {
+// 	// 	console.log(data[idx].userName);
+// 	// }
+// 	console.log('all '+data);
+// 	return data;
+// }
+// getAllUsers();
 
-	fs.readFile(__dirname + "/users.json")
-		.then(contents => {
-			data = JSON.parse(contents);
-			console.log(data);
-			// return data;
-		})
-
-	// for (var idx=0; idx<data.length; idx++) {
-	// 	console.log(data[idx].userName);
-	// }
-	console.log('all '+data);
-	return data;
-}
-getAllUsers();
 
 function CreateUsername(userName, password) {
 	fs.readFile(__dirname + "/users.json")
@@ -38,11 +41,11 @@ function CreateUsername(userName, password) {
 		data.push(obj);
 		fs.writeFile('users.json', JSON.stringify(data), function(err) {
 			if (err) throw err;
-			return true;
+			// return true;
 		});
 	})
 
-	return false;
+	// return false;
 }
 
 
@@ -68,6 +71,7 @@ const requestListener = function (req, res) {
 				res.end(contents);
 			})
 	}
+	// post: create a new user
 	else if (req.method === 'POST' && req.url.startsWith('/create') )
 	{
 		// var body = '';
